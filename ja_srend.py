@@ -2,7 +2,7 @@ import array
 import struct
 
 
-class Surface(object):
+class PixelBuffer(object):
 	"""Rectangular array of pixels. Format is RGBA, and each component is a float (32 bit)."""
 	def __init__(self, width, height):
 		self.width = width
@@ -32,7 +32,7 @@ def draw_test_pattern():
 	cx = WIDTH // 2
 	cy = HEIGHT // 2
 
-	s = Surface(WIDTH, HEIGHT)
+	s = PixelBuffer(WIDTH, HEIGHT)
 
 	with open('test-image-float32-800x600.rgba', 'wb') as fout:
 		for y in range(HEIGHT):
