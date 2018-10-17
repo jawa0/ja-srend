@@ -8,7 +8,7 @@ A convenient 3D software renderer with no dependencies. Well, some day. For now,
     python test.py
     ./convert-test-image-to-png.sh
 
-#### Building and running the C version
+#### Building and running the C version (deprecated -- continuing in Python)
 
     make
     ./test-srend
