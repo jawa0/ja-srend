@@ -13,7 +13,10 @@ class PixelBuffer(object):
 		pass
 		
 	def set_pixel(self, x, y, r, g, b, a):
-		"""Set the red, green, blue, and alpha components of the pixel at location (x, y)."""
+		"""Set the red, green, blue, and alpha components of the pixel at location (x, y).
+		The top-left pixel of the buffer has x-y coordinate (0, 0), and the bottom-right is
+		at (width-1, height-1)."""
+		
 		i = 4 * (y * self.width + x)
 		self.buffer[i : i + 4] = array.array('f', struct.pack('ffff', r, g, b, a))
 
@@ -42,6 +45,7 @@ def draw_test_pattern():
 
 				rgba = [0.0, 0.0, 0.0, 0.0]
 
+				# Set the four quadrants of the image to different colours.
 				if v >= 0:
 					rgba[0] = 1.0
 				else:
@@ -50,6 +54,7 @@ def draw_test_pattern():
 				if u >= 0:
 					rgba[2] = 1.0
 
+				# Make a centred circle opaque, and the borders transparent.
 				if u*u + v*v < radius*radius:
 					rgba[3] = 1.0
 				else:
